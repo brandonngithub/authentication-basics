@@ -30,3 +30,14 @@ Repo for notes and playground code while learning Passport.js
 - request headers set by client, response headers set by server
 - response headers set cookies
 - cookies that client has is known to server via request headers
+
+## Your complete guide to understanding the express-session library
+- https://youtu.be/J1qXK66k1y4?si=0JUhFlR4b8kHLNsk
+- cookies stored in browser, sessions stored in server
+- sessions store a bit more data and are a bit more secure
+- sessions are used to store info about a particular user moving through the browser
+- sessions can get big so for prod useful to have actual db to store, default just stores in memory
+- storing express-session in db pretty easy just need pass as option
+- cookie in browser has session id, and use that id to link/look up session in db
+- session object in req.session
+- can track how many times someone visited site w sessions so maybe implement in portfolio site
