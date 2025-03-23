@@ -1,11 +1,11 @@
-const path = require("node:path");
-const { Pool } = require("pg");
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
-const LocalStrategy = require('passport-local').Strategy;
-const dotenv = require('dotenv');
-const bcrypt = require('bcryptjs');
+const passportLocal = require("passport-local");
+const dotenv = require("dotenv");
+const bcrypt = require("bcryptjs");
+const path = require("node:path");
+const { Pool } = require("pg");
 
 dotenv.config();
 const app = express();
@@ -18,7 +18,7 @@ const pool = new Pool({
 });
 
 passport.use(
-    new LocalStrategy(async (username, password, done) => {
+    new passportLocal.Strategy(async (username, password, done) => {
         try {
             const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
             const user = rows[0];
@@ -53,7 +53,7 @@ passport.deserializeUser(async (id, done) => {
     }
 });
 
-app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
+app.use(session({ secret: process.env.SESSION_KEY, resave: false, saveUninitialized: false }));
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
