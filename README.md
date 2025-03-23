@@ -2,7 +2,7 @@
 
 Repo for notes and playground code while learning Passport.js
 
-### top
+## Lesson
 - Passport.js is just a middleware to help handle authentication and sessions
 - Passport.js uses strategies to authenticate users (500+ strategy options)
 - local strategy is just username and password
@@ -11,7 +11,7 @@ Repo for notes and playground code while learning Passport.js
 - salting passwords add extra random values before passing to hash function
 - salting passwords makes unique hash even if users use same passwords
 
-### What is User Authentication? (Node + Express + Passport)
+## What is User Authentication? (Node + Express + Passport)
 - https://youtu.be/z7872Nki5FY?si=UzwjC-7oWH8Igfs-
 - authentication choices include session/local, JWT, OAuth, other/adhoc
 - authentication is knowing who user is
