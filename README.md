@@ -66,5 +66,5 @@ Repo for notes and playground code while learning Passport.js
 - passport.serializeUser() stores stuff in req.session.passport.user
 - passport.deserializeUser() gets whatever was stored by serialize and for ex if userId then get whole user object from db and stores in req.user for use
 - req.logout() deletes req.session.passport.user property
-- isAuthenticated() basically just checks req.session.passport.user exists and not null
+- isAuthenticated() basically just checks if req.session.passport.user exists and not null
 - <mark>maybe add authMiddleware for isAuth and isAdmin in members_only like youtuber</mark>
