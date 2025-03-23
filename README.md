@@ -40,7 +40,7 @@ Repo for notes and playground code while learning Passport.js
 - storing express-session in db pretty easy just need pass as option
 - cookie in browser has session id, and use that id to link/look up session in db
 - session object in req.session
-- !! can track how many times someone visited site w sessions so maybe implement in portfolio site
+- <mark>can track how many times someone visited site w sessions so maybe implement in portfolio site</mark>
 
 ## What is Express middleware and how does it work? (in-depth)
 - https://youtu.be/AZDTM0DiLG8?si=VH0e8GNc4sy3lGe8
@@ -57,6 +57,6 @@ Repo for notes and playground code while learning Passport.js
 - passport.use() takes strategy, strategy takes verify callback
 - verify callback just own implementation of password verification
 - passport.authenticate() middleware specifies which configured strategy want use
-- !! separate passport logic in passport.js like youtuber did in this vid and maybe password encryption stuff in members_only
-- !! use session store in members_only
+- <mark>separate passport logic in passport.js like youtuber did in this vid and maybe password encryption stuff in members_only</mark>
+- <mark>use session store in members_only</mark>
 - this vid use crypto to encrypt passwords but we use bcrypt
