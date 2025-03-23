@@ -1,1 +1,1 @@
-# passport-js-auth
+# authentication-basics
