@@ -41,3 +41,12 @@ Repo for notes and playground code while learning Passport.js
 - cookie in browser has session id, and use that id to link/look up session in db
 - session object in req.session
 - can track how many times someone visited site w sessions so maybe implement in portfolio site
+
+## What is Express middleware and how does it work? (in-depth)
+- https://youtu.be/AZDTM0DiLG8?si=VH0e8GNc4sy3lGe8
+- basically everything in express is middleware, even routes
+- app.use is just middleware that all routes use
+- error handler middlewares take (err, req, res, next)
+- error handler middleware usually last to catch errors at end bc middleware order matters
+- can pass errors through middlewares w next(errObj)
+- skips other middlewares and goes straight to first error handler if errorObj passed
