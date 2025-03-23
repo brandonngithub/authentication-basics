@@ -7,8 +7,12 @@ const LocalStrategy = require('passport-local').Strategy;
 const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 
-const app = express();
 dotenv.config();
+const app = express();
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
 const pool = new Pool({
     connectionString: process.env.PSQL_CONNECTION_STRING
 });
@@ -49,9 +53,6 @@ passport.deserializeUser(async (id, done) => {
     }
 });
 
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-
 app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
@@ -60,8 +61,14 @@ app.use((req, res, next) => {
     next();
 });  
 
-app.get("/", (req, res) => res.render("index"));  
-app.get("/sign-up", (req, res) => res.render("sign-up-form"));
+app.get("/", (req, res) => {
+    res.render("index");
+});
+
+app.get("/sign-up", (req, res) => {
+    res.render("sign-up-form");
+});
+
 app.post("/sign-up", async (req, res, next) => {
     try {
         const hashedPassword = await new Promise((resolve, reject) => {
@@ -79,11 +86,13 @@ app.post("/sign-up", async (req, res, next) => {
         return next(err);
     }
 });
+
 app.post("/log-in", passport.authenticate("local", {
         successRedirect: "/",
         failureRedirect: "/"
     })
 );
+
 app.get("/log-out", (req, res, next) => {
     req.logout((err) => {
       if (err) {
@@ -93,4 +102,4 @@ app.get("/log-out", (req, res, next) => {
     });
 });  
 
-app.listen(3000, () => console.log("app listening on port 3000!"));
+app.listen(3000, () => console.log("Server running on port 3000"));
