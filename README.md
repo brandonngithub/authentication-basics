@@ -19,3 +19,14 @@ Repo for notes and playground code while learning Passport.js
 - there even passport strategies for like logging in w facebook, or ig, or github, etc...
 - Passport.js itself is a middleware and diff strategies are middlewares within it
 - on every HTTP request passport uses a strategy to determine if a user is authorized
+
+## HTTP Headers and Cookies
+- https://youtu.be/DxeSGUM16_4?si=S7V92ZBE9WQroQkh
+- network tab in inspect shows HTTP requests
+- application tab in inspect shows cookies
+- each HTTP request has headers
+- headers three main categories general, request, response
+- headers just metadata about the HTTP request
+- request headers set by client, response headers set by server
+- response headers set cookies
+- cookies that client has is known to server via request headers
