@@ -57,8 +57,6 @@ Repo for notes and playground code while learning Passport.js
 - passport.use() takes strategy, strategy takes verify callback
 - verify callback just own implementation of password verification
 - passport.authenticate() middleware specifies which configured strategy want use
-- <mark>separate passport logic in passport.js like youtuber did in this vid and maybe password encryption stuff in members_only</mark>
-- <mark>use session store in members_only</mark>
 - this vid use crypto to encrypt passwords but we use bcrypt
 
 ## Passport Local Strategy Usage (Node + Passport + Express)
@@ -67,4 +65,3 @@ Repo for notes and playground code while learning Passport.js
 - passport.deserializeUser() gets whatever was stored by serialize and for ex if userId then get whole user object from db and stores in req.user for use
 - req.logout() deletes req.session.passport.user property
 - isAuthenticated() basically just checks if req.session.passport.user exists and not null
-- <mark>maybe add authMiddleware for isAuth and isAdmin in members_only like youtuber</mark>
